@@ -4,6 +4,12 @@ class_name Hand
 
 @export var hand:Sprite2D
 @export var handHitBox: Area2D
+
+@export var handSprites: Dictionary[String, Texture2D] = {
+	"OpenHand" : null,
+	"ClosedHand": null
+}
+
 var grabbedItem: Node = null
 
 
@@ -23,6 +29,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if Input.is_action_pressed("Grab"):
 		#check for collisions
+		hand.texture = handSprites["ClosedHand"]
 		for area: Area2D in handHitBox.get_overlapping_areas():
 			#if grabbable
 			if area.is_in_group("Grabbable"):
@@ -32,5 +39,6 @@ func _input(event: InputEvent) -> void:
 				#currently only grab one
 				break;
 	if Input.is_action_just_released("Grab"):
+		hand.texture = handSprites["OpenHand"]
 		grabbedItem = null
 		grab_item.emit(false)
