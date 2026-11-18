@@ -30,7 +30,7 @@ position = Vector2(583, 626.5)
 scale = Vector2(8.859375, 4.273437)
 texture = ExtResource("1_tqfh0")
 
-[node name="MainThingy" parent="." unique_id=872173790 instance=ExtResource("3_l20p6")]
+[node name="Hand" parent="." unique_id=872173790 instance=ExtResource("3_l20p6")]
 position = Vector2(769, 384)
 
 [node name="Bowl2" type="RigidBody2D" parent="." unique_id=310564453]
@@ -48,7 +48,7 @@ shape = SubResource("CapsuleShape2D_e1qvk")
 
 [node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("4_vephn")]
 position = Vector2(199, 404)
-scale = Vector2(5.02, 5.02)
+scale = Vector2(1, 1)
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
 
@@ -56,4 +56,4 @@ scale = Vector2(5.02, 5.02)
 position = Vector2(619.25, 723)
 shape = SubResource("RectangleShape2D_e1qvk")
 
-[connection signal="grab_item" from="MainThingy" to="Ingredient" method="_on_main_thingy_grab_item"]
+[connection signal="grab_item" from="Hand" to="Ingredient" method="_on_main_thingy_grab_item"]
