@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvacwf6q2s7nr"]
+
+[ext_resource type="Texture2D" uid="uid://i0oa0wh1g2un" path="res://assets/openHand.png" id="1_sor51"]
+[ext_resource type="Texture2D" uid="uid://chffshm14nqhw" path="res://assets/arm.png" id="2_di2uo"]
+
+[node name="MainThingy" type="Node2D" unique_id=872173790]
+
+[node name="hand" type="Sprite2D" parent="." unique_id=1749627339]
+position = Vector2(-21, -40)
+texture = ExtResource("1_sor51")
+
+[node name="arm" type="Sprite2D" parent="." unique_id=1196058983]
+position = Vector2(129, 152)
+texture = ExtResource("2_di2uo")

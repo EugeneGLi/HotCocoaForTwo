@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cai0m5xuone5r"]
+
+[ext_resource type="Texture2D" uid="uid://dh31461mqgyxn" path="res://assets/choclate.png" id="1_rcex7"]
+
+[node name="Ingredient" type="Node2D" unique_id=92610464]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156951892]
+texture = ExtResource("1_rcex7")

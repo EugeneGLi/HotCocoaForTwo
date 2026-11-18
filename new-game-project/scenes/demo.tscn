@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cvwsvvawo2ncf"]
+
+[ext_resource type="Shader" uid="uid://ihjiyr6nhntm" path="res://shaders/tabletemp.gdshader" id="1_ba4lm"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_tqfh0"]
+[ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/main_thingy.tscn" id="3_l20p6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
+shader = ExtResource("1_ba4lm")
+shader_parameter/tex = ExtResource("1_tqfh0")
+shader_parameter/horizon = 6.515
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1qvk"]
+radius = 146.45477
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
+size = Vector2(1221.5, 191)
+
+[node name="Node2D" type="Node2D" unique_id=1738999152]
+
+[node name="table" type="Sprite2D" parent="." unique_id=1138692711]
+modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
+self_modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
+material = SubResource("ShaderMaterial_l20p6")
+position = Vector2(583, 626.5)
+scale = Vector2(8.859375, 4.273437)
+texture = ExtResource("1_tqfh0")
+
+[node name="MainThingy" parent="." unique_id=872173790 instance=ExtResource("3_l20p6")]
+position = Vector2(769, 384)
+
+[node name="Bowl" type="CollisionShape2D" parent="." unique_id=1290470179]
+position = Vector2(566, 459)
+shape = SubResource("CircleShape2D_e1qvk")
+
+[node name="table collision" type="CollisionShape2D" parent="." unique_id=976665633]
+position = Vector2(619.25, 723)
+shape = SubResource("RectangleShape2D_e1qvk")
