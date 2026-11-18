@@ -10,7 +10,6 @@ var grabbedItem: Node
 signal grab_item(info: bool)
 # Called when the node enters the scene tree for the first time.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -28,7 +27,6 @@ func _input(event: InputEvent) -> void:
 			#if grabbable
 			if area.is_in_group("Grabbable"):
 				#grab
-				#print("lifting!");
 				grab_item.emit(true)
 				#currently only grab one
 				break;

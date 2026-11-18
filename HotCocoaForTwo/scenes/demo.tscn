@@ -48,6 +48,7 @@ shape = SubResource("CapsuleShape2D_e1qvk")
 
 [node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("4_vephn")]
 position = Vector2(199, 404)
+scale = Vector2(5.02, 5.02)
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
 
