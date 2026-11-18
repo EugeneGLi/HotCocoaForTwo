@@ -30,6 +30,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Grab"):
 		#check for collisions
 		hand.texture = handSprites["ClosedHand"]
+	if Input.is_action_just_pressed("Grab"):
 		for area: Area2D in handHitBox.get_overlapping_areas():
 			#if grabbable
 			if area.is_in_group("Grabbable"):
