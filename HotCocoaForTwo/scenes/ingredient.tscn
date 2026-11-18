@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cai0m5xuone5r"]
 
 [ext_resource type="Texture2D" uid="uid://dh31461mqgyxn" path="res://assets/choclate.png" id="1_rcex7"]
-[ext_resource type="Script" uid="uid://bkbovsi0hawhu" path="res://scenes/ingredient.gd" id="1_ssx0k"]
+[ext_resource type="Script" uid="uid://8fh45c5xxnl5" path="res://scripts/ingredient.gd" id="1_ssx0k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssx0k"]
 

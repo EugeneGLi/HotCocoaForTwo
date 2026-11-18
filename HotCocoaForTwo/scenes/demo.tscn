@@ -2,7 +2,8 @@
 
 [ext_resource type="Shader" uid="uid://ihjiyr6nhntm" path="res://shaders/tabletemp.gdshader" id="1_ba4lm"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_tqfh0"]
-[ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/main_thingy.tscn" id="3_l20p6"]
+[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/hand.gd" id="1_x0xbu"]
+[ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/hand.tscn" id="3_l20p6"]
 [ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="4_b0nem"]
 [ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/ingredient.tscn" id="4_vephn"]
 
@@ -19,6 +20,7 @@ height = 276.00006
 size = Vector2(1221.5, 191)
 
 [node name="Node2D" type="Node2D" unique_id=1738999152]
+script = ExtResource("1_x0xbu")
 
 [node name="table" type="Sprite2D" parent="." unique_id=1138692711]
 modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
