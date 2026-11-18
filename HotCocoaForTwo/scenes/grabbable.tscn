@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clgm0opwuomqn"]
+
+[node name="GrabbableTemplate" type="RigidBody2D" unique_id=1450439087]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2049580082]
+position = Vector2(-2, 1)
+scale = Vector2(0.42935917, 0.528216)
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1875963700]
+
+[node name="GrabbableArea" type="Area2D" parent="." unique_id=66990672 groups=["Grabbable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbableArea" unique_id=921676458]

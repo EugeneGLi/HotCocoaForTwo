@@ -1,30 +1,28 @@
 [gd_scene format=3 uid="uid://cai0m5xuone5r"]
 
 [ext_resource type="Texture2D" uid="uid://dh31461mqgyxn" path="res://assets/choclate.png" id="1_rcex7"]
-[ext_resource type="Script" uid="uid://8fh45c5xxnl5" path="res://scripts/ingredient.gd" id="1_ssx0k"]
+[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/grabbable.tscn" id="2_de0p5"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssx0k"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8pa7"]
+size = Vector2(25.605495, 43.031013)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
-size = Vector2(83, 79)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8iyfc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
-radius = 30.0
-height = 94.0
+[node name="Ingredient" type="Node2D" unique_id=993039001]
+scale = Vector2(1.665, 1.665)
 
-[node name="Ingredient" type="RigidBody2D" unique_id=1407339058]
-physics_material_override = SubResource("PhysicsMaterial_ssx0k")
-script = ExtResource("1_ssx0k")
+[node name="GrabbableTemplate" parent="." unique_id=1450439087 instance=ExtResource("2_de0p5")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156951892]
+[node name="Sprite" parent="GrabbableTemplate" index="0" unique_id=2049580082]
 texture = ExtResource("1_rcex7")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=714739791 groups=["Grabbable"]]
+[node name="CollisionBox" parent="GrabbableTemplate" index="1" unique_id=1875963700]
+position = Vector2(-0.7537969, -0.29341203)
+rotation = 0.6981317
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_r8pa7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1282891780]
-position = Vector2(1, -5)
-shape = SubResource("RectangleShape2D_e1qvk")
+[node name="CollisionShape2D" parent="GrabbableTemplate/GrabbableArea" parent_id_path=PackedInt32Array(1450439087, 66990672) index="0" unique_id=921676458]
+shape = SubResource("CircleShape2D_8iyfc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062058306]
-position = Vector2(2, -3)
-shape = SubResource("CapsuleShape2D_e1qvk")
+[editable path="GrabbableTemplate"]
