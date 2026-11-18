@@ -4,7 +4,7 @@ class_name Hand
 
 @export var hand:Sprite2D
 @export var handHitBox: Area2D
-var grabbedItem: Node
+var grabbedItem: Node = null
 
 
 signal grab_item(info: bool)
@@ -27,8 +27,10 @@ func _input(event: InputEvent) -> void:
 			#if grabbable
 			if area.is_in_group("Grabbable"):
 				#grab
+				grabbedItem = area.get_parent()
 				grab_item.emit(true)
 				#currently only grab one
 				break;
 	if Input.is_action_just_released("Grab"):
+		grabbedItem = null
 		grab_item.emit(false)
