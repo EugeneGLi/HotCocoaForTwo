@@ -1,14 +1,26 @@
 [gd_scene format=3 uid="uid://cvacwf6q2s7nr"]
 
+[ext_resource type="Script" uid="uid://criss2b3vibmk" path="res://scenes/hand.gd" id="1_di2uo"]
 [ext_resource type="Texture2D" uid="uid://i0oa0wh1g2un" path="res://assets/openHand.png" id="1_sor51"]
 [ext_resource type="Texture2D" uid="uid://chffshm14nqhw" path="res://assets/arm.png" id="2_di2uo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1qvk"]
+radius = 64.327286
+
 [node name="MainThingy" type="Node2D" unique_id=872173790]
+script = ExtResource("1_di2uo")
 
 [node name="hand" type="Sprite2D" parent="." unique_id=1749627339]
-position = Vector2(-21, -40)
+unique_name_in_owner = true
 texture = ExtResource("1_sor51")
 
+[node name="HandHitBox" type="Area2D" parent="hand" unique_id=429137080]
+unique_name_in_owner = true
+
+[node name="HandHitBox" type="CollisionShape2D" parent="hand/HandHitBox" unique_id=1575015373]
+shape = SubResource("CircleShape2D_e1qvk")
+
 [node name="arm" type="Sprite2D" parent="." unique_id=1196058983]
+visible = false
 position = Vector2(129, 152)
 texture = ExtResource("2_di2uo")

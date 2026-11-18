@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cai0m5xuone5r"]
+
+[ext_resource type="Texture2D" uid="uid://dh31461mqgyxn" path="res://assets/choclate.png" id="1_rcex7"]
+[ext_resource type="Script" uid="uid://bkbovsi0hawhu" path="res://scenes/ingredient.gd" id="1_ssx0k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssx0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
+size = Vector2(83, 79)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
+radius = 30.0
+height = 94.0
+
+[node name="Ingredient" type="RigidBody2D" unique_id=1407339058]
+physics_material_override = SubResource("PhysicsMaterial_ssx0k")
+script = ExtResource("1_ssx0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156951892]
+texture = ExtResource("1_rcex7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=714739791 groups=["Grabbable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1282891780]
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_e1qvk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062058306]
+position = Vector2(2, -3)
+shape = SubResource("CapsuleShape2D_e1qvk")
