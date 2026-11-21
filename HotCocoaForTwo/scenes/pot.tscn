@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://oeok82n26im1"]
+
+[ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="1_xu6wc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
+radius = 63.00003
+height = 276.00006
+
+[node name="Bowl2" type="RigidBody2D" unique_id=1134803651]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512527938]
+position = Vector2(6, 36)
+scale = Vector2(0.45117188, 0.4326172)
+texture = ExtResource("1_xu6wc")
+
+[node name="Bowl" type="CollisionShape2D" parent="." unique_id=1478392092]
+position = Vector2(2, 60)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_e1qvk")

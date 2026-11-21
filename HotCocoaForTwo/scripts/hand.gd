@@ -4,7 +4,7 @@ class_name Hand
 
 @export var hand:Sprite2D
 @export var handHitBox: Area2D
-
+@export var velocity: Vector2
 @export var handSprites: Dictionary[String, Texture2D] = {
 	"OpenHand" : null,
 	"ClosedHand": null
@@ -20,7 +20,8 @@ signal grab_item(info: bool)
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if hand:
-		hand.position = get_local_mouse_position();
+		var new_position = get_local_mouse_position()
+		hand.position = new_position
 
 
 @warning_ignore("unused_parameter")

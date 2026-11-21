@@ -4,17 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_tqfh0"]
 [ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/hand.gd" id="1_x0xbu"]
 [ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/hand.tscn" id="3_l20p6"]
-[ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="4_b0nem"]
 [ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/ingredient.tscn" id="4_vephn"]
+[ext_resource type="PackedScene" uid="uid://oeok82n26im1" path="res://scenes/pot.tscn" id="5_g3o0j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
 shader = ExtResource("1_ba4lm")
 shader_parameter/tex = ExtResource("1_tqfh0")
 shader_parameter/horizon = 6.515
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
-radius = 63.00003
-height = 276.00006
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
 size = Vector2(1221.5, 191)
@@ -33,18 +29,8 @@ texture = ExtResource("1_tqfh0")
 [node name="Hand" parent="." unique_id=872173790 instance=ExtResource("3_l20p6")]
 position = Vector2(769, 384)
 
-[node name="Bowl2" type="RigidBody2D" parent="." unique_id=310564453]
-position = Vector2(566, 459)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bowl2" unique_id=1276944977]
-position = Vector2(6, 36)
-scale = Vector2(0.45117188, 0.4326172)
-texture = ExtResource("4_b0nem")
-
-[node name="Bowl" type="CollisionShape2D" parent="Bowl2" unique_id=1290470179]
-position = Vector2(2, 60)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_e1qvk")
+[node name="Bowl2" parent="." unique_id=1134803651 instance=ExtResource("5_g3o0j")]
+position = Vector2(532, 408)
 
 [node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("4_vephn")]
 position = Vector2(199, 404)
