@@ -10,10 +10,10 @@ class_name Hand
 	"ClosedHand": null
 }
 
-var grabbedItem: Node = null
+var grabbedItem: RigidBody2D = null
 
 
-signal grab_item(info: bool)
+signal grab_item(item:RigidBody2D, info: bool)
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +22,10 @@ func _process(delta: float) -> void:
 	if hand:
 		hand.position = get_local_mouse_position();
 
-
+func _physics_process(_delta: float) -> void:
+	if grabbedItem != null:
+		grabbedItem.global_position = get_global_mouse_position()
+		
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if not hand:
@@ -35,11 +38,19 @@ func _input(event: InputEvent) -> void:
 			#if grabbable
 			if area.is_in_group("Grabbable"):
 				#grab
-				grabbedItem = area.get_parent()
-				grab_item.emit(true)
+				var candidate: RigidBody2D = area.get_parent() as RigidBody2D
+				if candidate == null:
+					continue
+
+				grabbedItem = candidate
+				grabbedItem.freeze = true
+				grab_item.emit(grabbedItem, true)
 				#currently only grab one
 				break;
 	if Input.is_action_just_released("Grab"):
 		hand.texture = handSprites["OpenHand"]
-		grabbedItem = null
-		grab_item.emit(false)
+		if grabbedItem != null:
+			var releasedItem: RigidBody2D = grabbedItem
+			grabbedItem.freeze = false
+			grab_item.emit(releasedItem, false)
+			grabbedItem = null
