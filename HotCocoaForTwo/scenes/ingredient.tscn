@@ -13,6 +13,7 @@ radius = 59.486755
 [node name="Ingredient" type="Node2D" unique_id=993039001]
 scale = Vector2(1.665, 1.665)
 script = ExtResource("1_ssx0k")
+max_speed = 1000.0
 
 [node name="GrabbableTemplate" parent="." unique_id=1450439087 instance=ExtResource("2_de0p5")]
 unique_name_in_owner = true
