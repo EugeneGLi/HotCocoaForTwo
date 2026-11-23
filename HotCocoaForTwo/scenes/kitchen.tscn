@@ -14,7 +14,7 @@ shader_parameter/horizon = 6.515
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
 size = Vector2(1221.5, 191)
 
-[node name="Node2D" type="Node2D" unique_id=1738999152]
+[node name="main" type="Node2D" unique_id=1738999152]
 
 [node name="table" type="Sprite2D" parent="." unique_id=1138692711]
 modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
@@ -32,12 +32,12 @@ position = Vector2(532, 408)
 
 [node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("4_vephn")]
 position = Vector2(199, 404)
-scale = Vector2(1, 1)
+
+[node name="Ingredient2" parent="." unique_id=993039001 instance=ExtResource("4_vephn")]
+position = Vector2(493, 161)
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
 
 [node name="table collision" type="CollisionShape2D" parent="table2" unique_id=976665633]
 position = Vector2(619.25, 723)
 shape = SubResource("RectangleShape2D_e1qvk")
-
-[connection signal="grab_item" from="Hand" to="Ingredient" method="_on_main_thingy_grab_item"]

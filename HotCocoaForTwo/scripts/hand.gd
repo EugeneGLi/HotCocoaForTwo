@@ -13,10 +13,14 @@ class_name Hand
 var grabbedItem: Node = null
 
 
-signal grab_item(info: bool, hand: Node2D)
+signal grab_item(info: bool, hand: Area2D)
 # Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for node in get_tree().get_nodes_in_group("Grabbable"):
+		node = node.get_parent().get_parent()
+		grab_item.connect(node._on_main_thingy_grab_item)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if hand:
@@ -36,11 +40,11 @@ func _input(event: InputEvent) -> void:
 			#if grabbable
 			if area.is_in_group("Grabbable"):
 				#grab
-				grabbedItem = area.get_parent()
-				grab_item.emit(true, self)
+				grabbedItem = area
+				grab_item.emit(true, area)
 				#currently only grab one
 				break;
 	if Input.is_action_just_released("Grab"):
 		hand.texture = handSprites["OpenHand"]
+		grab_item.emit(false, grabbedItem)
 		grabbedItem = null
-		grab_item.emit(false, null)

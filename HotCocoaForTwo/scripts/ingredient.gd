@@ -7,6 +7,7 @@ var toFollow: Node2D
 @onready var rigidBody : RigidBody2D = %GrabbableTemplate
 @export var max_speed : float = 50
 @export var angular_damping := 8.0
+@export var area2d : Area2D
 var current_grav
 func _ready() -> void:
 	current_grav = rigidBody.gravity_scale
@@ -24,7 +25,9 @@ func _physics_process(_delta: float) -> void:
 
 
 ##thing
-func _on_main_thingy_grab_item(info: bool, hand: Node2D) -> void:
+func _on_main_thingy_grab_item(info: bool, hand: Area2D) -> void:
+	if hand != area2d:
+		return
 	isGrabbed = info
 	toFollow = hand;
 	if info:
