@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://oeok82n26im1"]
 
 [ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="1_xu6wc"]
+[ext_resource type="Script" uid="uid://bhcsbeh8prl10" path="res://scripts/pot.gd" id="2_potgd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
 radius = 63.00003
 height = 276.00006
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drop"]
+size = Vector2(250, 80)
+
 [node name="Bowl2" type="RigidBody2D" unique_id=1134803651]
+freeze = true
+script = ExtResource("2_potgd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512527938]
 position = Vector2(6, 36)
@@ -17,3 +23,9 @@ texture = ExtResource("1_xu6wc")
 position = Vector2(2, 60)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_e1qvk")
+
+[node name="DropArea" type="Area2D" parent="." unique_id=1771203455]
+
+[node name="DropShape" type="CollisionShape2D" parent="DropArea" unique_id=1771203456]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_drop")
