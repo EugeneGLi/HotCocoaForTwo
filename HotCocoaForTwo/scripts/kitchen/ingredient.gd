@@ -21,7 +21,6 @@ func _physics_process(_delta: float) -> void:
 		var current := rigidBody.position
 		var distance := destination - current
 		#print(str(destination) + " + " + str(current) + " = " + str(distance))
-		var is_far_away := distance.length() > max_offset
 		rigidBody.linear_velocity = (distance / _delta).limit_length(max_speed)
 		rigidBody.angular_velocity = move_toward(rigidBody.angular_velocity, 0.0, angular_damping * _delta * 10.0)
 
