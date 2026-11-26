@@ -35,3 +35,15 @@ func _on_main_thingy_grab_item(info: bool, hand: Area2D) -> void:
 	if info:
 		rigidBody.angular_velocity = 0
 	rigidBody.gravity_scale = 0 if info else current_grav
+
+# To add a new ingredient kind type a new name inside the { } below
+# Make sure to add the name at the end of the list and add a color for it in pot.gd
+enum Type { CHOCOLATE, MILK, MARSHMALLOW }
+@export var type: Type = Type.CHOCOLATE
+# Used to stop the pot from counting the ingredient that was just dropped, twice
+var is_used: bool = false
+
+# Called by the pot when it accepts this ingredient
+func use_up() -> void:
+	is_used = true
+	queue_free() # delete this node safely at the end of the frame

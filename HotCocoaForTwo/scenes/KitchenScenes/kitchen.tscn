@@ -34,7 +34,8 @@ position = Vector2(532, 408)
 position = Vector2(199, 404)
 
 [node name="Ingredient2" parent="." unique_id=993039001 instance=ExtResource("4_vephn")]
-position = Vector2(493, 161)
+position = Vector2(964, 262)
+type = 1
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
 
