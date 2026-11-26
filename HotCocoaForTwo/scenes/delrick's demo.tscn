@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://c11fg42p08skf"]
+
+[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/hand.gd" id="1_gjpvo"]
+[ext_resource type="Shader" uid="uid://ihjiyr6nhntm" path="res://shaders/tabletemp.gdshader" id="2_pb3k6"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_urs2a"]
+[ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/hand.tscn" id="4_m1bvj"]
+[ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="5_eueak"]
+[ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/ingredient.tscn" id="6_god2a"]
+[ext_resource type="Script" uid="uid://crm58d3x34hwd" path="res://scripts/chopping_zone.gd" id="7_np76i"]
+[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/grabbable.tscn" id="8_gp8h5"]
+[ext_resource type="Texture2D" uid="uid://cx5iaq2mjorde" path="res://assets/Kitchen/knife_PNG1512-495464114.png" id="9_hbxqc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
+shader = ExtResource("2_pb3k6")
+shader_parameter/tex = ExtResource("3_urs2a")
+shader_parameter/horizon = 6.515
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1qvk"]
+radius = 63.00003
+height = 276.00006
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qvk"]
+size = Vector2(1221.5, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ruus"]
+size = Vector2(1200, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qr1p"]
+size = Vector2(60, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5dly"]
+size = Vector2(175, 75)
+
+[node name="Node2D" type="Node2D" unique_id=1738999152]
+script = ExtResource("1_gjpvo")
+
+[node name="table" type="Sprite2D" parent="." unique_id=1138692711]
+modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
+self_modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
+material = SubResource("ShaderMaterial_l20p6")
+position = Vector2(583, 626.5)
+scale = Vector2(8.859375, 4.273437)
+texture = ExtResource("3_urs2a")
+
+[node name="Hand" parent="." unique_id=872173790 instance=ExtResource("4_m1bvj")]
+position = Vector2(769, 384)
+
+[node name="Bowl2" type="RigidBody2D" parent="." unique_id=310564453]
+position = Vector2(566, 459)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bowl2" unique_id=1276944977]
+position = Vector2(6, 36)
+scale = Vector2(0.45117188, 0.4326172)
+texture = ExtResource("5_eueak")
+
+[node name="Bowl" type="CollisionShape2D" parent="Bowl2" unique_id=1290470179]
+position = Vector2(2, 60)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_e1qvk")
+
+[node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("6_god2a")]
+position = Vector2(199, 404)
+scale = Vector2(1, 1)
+
+[node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
+
+[node name="table collision" type="CollisionShape2D" parent="table2" unique_id=976665633]
+position = Vector2(619.25, 723)
+shape = SubResource("RectangleShape2D_e1qvk")
+
+[node name="ChoppingZone" type="Area2D" parent="." unique_id=1986180533]
+position = Vector2(600, 520)
+script = ExtResource("7_np76i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChoppingZone" unique_id=1309077922]
+shape = SubResource("RectangleShape2D_3ruus")
+
+[node name="Knife" parent="." unique_id=1450439087 instance=ExtResource("8_gp8h5")]
+position = Vector2(850, 450)
+rotation = 1.0454522
+
+[node name="Sprite" parent="Knife" index="0" unique_id=2049580082]
+rotation = 0.9424778
+scale = Vector2(0.104, 0.134)
+texture = ExtResource("9_hbxqc")
+
+[node name="CollisionBox" parent="Knife" index="1" unique_id=1875963700]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_7qr1p")
+
+[node name="CollisionShape2D" parent="Knife/GrabbableArea" parent_id_path=PackedInt32Array(1450439087, 66990672) index="0" unique_id=921676458]
+rotation = 0.008761965
+shape = SubResource("RectangleShape2D_h5dly")
+
+[connection signal="grab_item" from="Hand" to="Ingredient" method="_on_main_thingy_grab_item"]
+
+[editable path="Knife"]
