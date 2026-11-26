@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cai0m5xuone5r"]
 
 [ext_resource type="Texture2D" uid="uid://dh31461mqgyxn" path="res://assets/choclate.png" id="1_rcex7"]
-[ext_resource type="Script" uid="uid://8fh45c5xxnl5" path="res://scripts/ingredient.gd" id="1_ssx0k"]
-[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/grabbable.tscn" id="2_de0p5"]
+[ext_resource type="Script" uid="uid://8fh45c5xxnl5" path="res://scripts/kitchen/ingredient.gd" id="1_ssx0k"]
+[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/KitchenInteractables/grabbable.tscn" id="2_de0p5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8pa7"]
 size = Vector2(121.3591, 176.7355)
@@ -12,11 +12,11 @@ radius = 59.486755
 
 [node name="Ingredient" type="Node2D" unique_id=993039001 node_paths=PackedStringArray("area2d")]
 script = ExtResource("1_ssx0k")
-max_speed = 1000.0
 area2d = NodePath("GrabbableTemplate/GrabbableArea")
 
 [node name="GrabbableTemplate" parent="." unique_id=1450439087 instance=ExtResource("2_de0p5")]
 unique_name_in_owner = true
+mass = 0.5
 
 [node name="Sprite" parent="GrabbableTemplate" index="0" unique_id=2049580082]
 scale = Vector2(2, 2)

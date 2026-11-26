@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvacwf6q2s7nr"]
 
-[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/hand.gd" id="1_k7pjy"]
+[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/kitchen/hand.gd" id="1_k7pjy"]
 [ext_resource type="Texture2D" uid="uid://i0oa0wh1g2un" path="res://assets/openHand.png" id="1_sor51"]
 [ext_resource type="Texture2D" uid="uid://chffshm14nqhw" path="res://assets/arm.png" id="2_di2uo"]
 [ext_resource type="Texture2D" uid="uid://7tglhejhnmej" path="res://assets/closedHand.png" id="3_m1v21"]
