@@ -17,7 +17,12 @@ signal grab_item(info: bool, hand: Area2D)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("Grabbable"):
+
 		node = node.get_parent().get_parent()
+
+		if(node.get_script() == null):
+			print(error_string(ERR_CANT_ACQUIRE_RESOURCE) + ": given node " +  str(node) + "does not have a script to handle grabbing")
+			continue
 		grab_item.connect(node._on_main_thingy_grab_item)
 
 

@@ -1,5 +1,31 @@
 [gd_scene format=3 uid="uid://bjhawf5rwu08h"]
 
-[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/grabbable.tscn" id="1_ufhdc"]
+[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/KitchenInteractables/grabbable.tscn" id="1_ufhdc"]
+[ext_resource type="Texture2D" uid="uid://cx5iaq2mjorde" path="res://assets/Kitchen/knife_PNG1512-495464114.png" id="2_syuqf"]
 
-[node name="GrabbableTemplate" unique_id=1450439087 instance=ExtResource("1_ufhdc")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qr1p"]
+size = Vector2(60, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5dly"]
+size = Vector2(175, 75)
+
+[node name="Node2D" type="Node2D" unique_id=34372068]
+
+[node name="Knife_RigidBody" parent="." unique_id=1450439087 instance=ExtResource("1_ufhdc")]
+position = Vector2(850, 450)
+rotation = 1.0454522
+
+[node name="Sprite" parent="Knife_RigidBody" index="0" unique_id=2049580082]
+rotation = 0.9424778
+scale = Vector2(0.104, 0.134)
+texture = ExtResource("2_syuqf")
+
+[node name="CollisionBox" parent="Knife_RigidBody" index="1" unique_id=1875963700]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_7qr1p")
+
+[node name="CollisionShape2D" parent="Knife_RigidBody/GrabbableArea" parent_id_path=PackedInt32Array(1450439087, 66990672) index="0" unique_id=921676458]
+rotation = 0.008761965
+shape = SubResource("RectangleShape2D_h5dly")
+
+[editable path="Knife_RigidBody"]

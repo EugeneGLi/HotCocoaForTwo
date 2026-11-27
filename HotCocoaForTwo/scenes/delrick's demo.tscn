@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://c11fg42p08skf"]
 
-[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/hand.gd" id="1_gjpvo"]
+[ext_resource type="Script" uid="uid://d4dbrldky3nna" path="res://scripts/kitchen/hand.gd" id="1_gjpvo"]
 [ext_resource type="Shader" uid="uid://ihjiyr6nhntm" path="res://shaders/tabletemp.gdshader" id="2_pb3k6"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="3_urs2a"]
 [ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/hand.tscn" id="4_m1bvj"]
 [ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="5_eueak"]
-[ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/ingredient.tscn" id="6_god2a"]
+[ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/KitchenItems/ingredient.tscn" id="6_god2a"]
 [ext_resource type="Script" uid="uid://crm58d3x34hwd" path="res://scripts/chopping_zone.gd" id="7_np76i"]
-[ext_resource type="PackedScene" uid="uid://clgm0opwuomqn" path="res://scenes/grabbable.tscn" id="8_gp8h5"]
-[ext_resource type="Texture2D" uid="uid://cx5iaq2mjorde" path="res://assets/Kitchen/knife_PNG1512-495464114.png" id="9_hbxqc"]
+[ext_resource type="PackedScene" uid="uid://bjhawf5rwu08h" path="res://scenes/knife.tscn" id="8_0to0x"]
+[ext_resource type="Script" uid="uid://8fh45c5xxnl5" path="res://scripts/kitchen/ingredient.gd" id="9_gjpvo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
 shader = ExtResource("2_pb3k6")
@@ -24,12 +24,6 @@ size = Vector2(1221.5, 191)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ruus"]
 size = Vector2(1200, 800)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qr1p"]
-size = Vector2(60, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5dly"]
-size = Vector2(175, 75)
 
 [node name="Node2D" type="Node2D" unique_id=1738999152]
 script = ExtResource("1_gjpvo")
@@ -60,7 +54,6 @@ shape = SubResource("CapsuleShape2D_e1qvk")
 
 [node name="Ingredient" parent="." unique_id=92610464 instance=ExtResource("6_god2a")]
 position = Vector2(199, 404)
-scale = Vector2(1, 1)
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=219589099]
 
@@ -68,30 +61,18 @@ scale = Vector2(1, 1)
 position = Vector2(619.25, 723)
 shape = SubResource("RectangleShape2D_e1qvk")
 
-[node name="ChoppingZone" type="Area2D" parent="." unique_id=1986180533]
+[node name="ChoppingZone" type="Area2D" parent="." unique_id=1986180533 node_paths=PackedStringArray("knife")]
 position = Vector2(600, 520)
 script = ExtResource("7_np76i")
+knife = NodePath("../Knife/Knife_RigidBody")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChoppingZone" unique_id=1309077922]
 shape = SubResource("RectangleShape2D_3ruus")
 
-[node name="Knife" parent="." unique_id=1450439087 instance=ExtResource("8_gp8h5")]
-position = Vector2(850, 450)
-rotation = 1.0454522
+[node name="Knife" parent="." unique_id=34372068 instance=ExtResource("8_0to0x")]
+script = ExtResource("9_gjpvo")
 
-[node name="Sprite" parent="Knife" index="0" unique_id=2049580082]
-rotation = 0.9424778
-scale = Vector2(0.104, 0.134)
-texture = ExtResource("9_hbxqc")
-
-[node name="CollisionBox" parent="Knife" index="1" unique_id=1875963700]
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_7qr1p")
-
-[node name="CollisionShape2D" parent="Knife/GrabbableArea" parent_id_path=PackedInt32Array(1450439087, 66990672) index="0" unique_id=921676458]
-rotation = 0.008761965
-shape = SubResource("RectangleShape2D_h5dly")
-
-[connection signal="grab_item" from="Hand" to="Ingredient" method="_on_main_thingy_grab_item"]
-
+[editable path="Ingredient"]
+[editable path="Ingredient/GrabbableTemplate"]
 [editable path="Knife"]
+[editable path="Knife/Knife_RigidBody"]

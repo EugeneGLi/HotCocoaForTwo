@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var hand: Hand = get_parent().get_node("Hand")
-@onready var knife: RigidBody2D = get_parent().get_node("Knife")
+@export var knife: RigidBody2D
 
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventMouseMotion):
