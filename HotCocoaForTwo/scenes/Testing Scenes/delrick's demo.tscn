@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjeubcy04atf0" path="res://assets/Pot_Empty.png" id="5_eueak"]
 [ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/KitchenItems/ingredient.tscn" id="6_god2a"]
 [ext_resource type="Script" uid="uid://crm58d3x34hwd" path="res://scripts/chopping_zone.gd" id="7_np76i"]
-[ext_resource type="PackedScene" uid="uid://bjhawf5rwu08h" path="res://scenes/knife.tscn" id="8_0to0x"]
+[ext_resource type="PackedScene" uid="uid://bjhawf5rwu08h" path="res://scenes/KitchenItems/knife.tscn" id="8_0to0x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
 shader = ExtResource("2_pb3k6")
@@ -69,8 +69,7 @@ knife = NodePath("../Knife/Knife_RigidBody")
 shape = SubResource("RectangleShape2D_3ruus")
 
 [node name="Knife" parent="." unique_id=34372068 instance=ExtResource("8_0to0x")]
+position = Vector2(929, 403)
 
 [editable path="Ingredient"]
 [editable path="Ingredient/GrabbableTemplate"]
-[editable path="Knife"]
-[editable path="Knife/Knife_RigidBody"]

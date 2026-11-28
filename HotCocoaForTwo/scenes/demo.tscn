@@ -32,7 +32,6 @@ size = Vector2(60, 20)
 size = Vector2(175, 75)
 
 [node name="Node2D" type="Node2D" unique_id=1738999152]
-script = ExtResource("1_x0xbu")
 
 [node name="table" type="Sprite2D" parent="." unique_id=1138692711]
 modulate = Color(0.64705884, 0.16470589, 0.16470589, 1)
