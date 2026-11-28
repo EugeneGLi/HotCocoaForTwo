@@ -4,11 +4,9 @@ extends Area2D
 @export var knife: RigidBody2D
 
 func _input(event: InputEvent) -> void:
-	if not (event is InputEventMouseMotion):
-		return
-	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		return
-	if hand.grabbedItem != knife:
+	if not (event is InputEventMouseMotion) \
+	or not Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) \
+	or hand.grabbedItem != knife:
 		return
 
 	for area: Area2D in get_overlapping_areas():

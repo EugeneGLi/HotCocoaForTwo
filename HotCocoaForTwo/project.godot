@@ -23,6 +23,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Grabbable="These are things that can be grabbed"
+Choppable="These Items can be chopped by sharp objects"
 
 [input]
 

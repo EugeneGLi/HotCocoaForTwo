@@ -3,8 +3,8 @@
 [ext_resource type="Shader" uid="uid://ihjiyr6nhntm" path="res://shaders/tabletemp.gdshader" id="1_ba4lm"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_tqfh0"]
 [ext_resource type="PackedScene" uid="uid://cvacwf6q2s7nr" path="res://scenes/hand.tscn" id="3_l20p6"]
-[ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/ingredient.tscn" id="4_vephn"]
-[ext_resource type="PackedScene" uid="uid://oeok82n26im1" path="res://scenes/pot.tscn" id="5_g3o0j"]
+[ext_resource type="PackedScene" uid="uid://cai0m5xuone5r" path="res://scenes/KitchenInteractables/ingredient.tscn" id="4_vephn"]
+[ext_resource type="PackedScene" uid="uid://oeok82n26im1" path="res://scenes/KitchenItems/pot.tscn" id="5_g3o0j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l20p6"]
 shader = ExtResource("1_ba4lm")
